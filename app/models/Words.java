@@ -2,39 +2,47 @@ package models;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 
 public class Words
 {
 
-
-
+    private String image;
     private String place1;
     private String adjective1;
     private String noun1;
     private String noun2;
     private String verbPastTense1;
     private String place2;
-   private List<String> nouns = new LinkedList<>();
-   private List<String> verbs = new LinkedList<>();
-   private List<String> adjectives = new LinkedList<>();
+    private List<Nouns> nouns = new LinkedList<>();
+    private List<Verbs> verbs = new LinkedList<>();
+    private List<Adjectives> adjectives = new LinkedList<>();
+    private List<Places> places = new LinkedList<>();
 
 
-
-    public List<String> getNouns()
+    public List<Nouns> getNouns()
     {
+
         return nouns;
     }
 
-    public List<String> getVerbs()
+    public List<Places> getPlaces()
     {
+
+        return places;
+    }
+
+    public List<Verbs> getVerbs()
+    {
+
         return verbs;
     }
 
-    public List<String> getAdjectives()
+    public List<Adjectives> getAdjectives()
     {
+
         return adjectives;
     }
+
     public String getNoun2()
     {
         return noun2;
@@ -95,4 +103,6 @@ public class Words
     {
         this.adjective1 = adjective1;
     }
+
+
 }

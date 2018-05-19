@@ -1,10 +1,14 @@
 package controllers;
 
+import models.Nouns;
+import models.Places;
 import models.Words;
 import play.mvc.Controller;
 import play.mvc.Result;
 
 import java.util.*;
+
+
 
 public class GameController extends Controller
 {
@@ -52,20 +56,29 @@ public class GameController extends Controller
     public Result getRandomStory()
     {
         Words words = new Words();
+
+        List places = new LinkedList();
+        places.add("Beach");
+        places.add("School");
+        places.add("Office");
+        places.add("Home");
+        places.add("City");
+        places.add("Woods");
+        places.add("Country");
         List nouns = new LinkedList();
-        nouns.add("man");
-        nouns.add("mountain");
-        nouns.add("state");
-        nouns.add("ocean");
+        nouns.add("trunk");
+        nouns.add("hole");
+        nouns.add("floor");
+        nouns.add("fan");
         nouns.add("bed");
-        nouns.add("cat");
-        nouns.add("country");
+        nouns.add("bag");
+        nouns.add("box");
 
         List verbs = new LinkedList();
-        verbs.add("become");
+        verbs.add("had found");
         verbs.add("had broken");
-        verbs.add("brought");
-        verbs.add("chosen");
+        verbs.add("saved");
+        verbs.add("shamed");
         verbs.add("cut");
         verbs.add("forgotten");
         verbs.add("forgiven");
@@ -79,13 +92,24 @@ public class GameController extends Controller
         adjectives.add("mysterious");
         adjectives.add("tranquil");
 
-// finish variables below
+
+        Collections.shuffle(places);
         Collections.shuffle(adjectives);
         Collections.shuffle(nouns);
         Collections.shuffle(verbs);
+        words.setPlace1(((LinkedList) places).getFirst().toString());
+        words.getPlaces().remove(((LinkedList) adjectives).poll());
         words.setAdjective1(((LinkedList) adjectives).getFirst().toString());
+        words.getAdjectives().remove(((LinkedList) adjectives).poll());
         words.setNoun1(((LinkedList) nouns).getFirst().toString());
-        words.setVerbPastTense1(((LinkedList) nouns).getFirst().toString());
+        words.getNouns().remove(((LinkedList) nouns).poll());
+        words.setNoun2(((LinkedList) nouns).getFirst().toString());
+        words.getNouns().remove(((LinkedList) nouns).poll());
+        words.setVerbPastTense1(((LinkedList) verbs).getFirst().toString());
+        words.getVerbs().remove(((LinkedList) verbs).poll());
+        words.setPlace2(((LinkedList) places).getLast().toString());
+        words.getPlaces().remove(((LinkedList) places).poll());
+
         return ok(views.html.story.render(words));
     }
 }
