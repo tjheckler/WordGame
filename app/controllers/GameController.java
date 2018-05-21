@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Adjectives;
 import models.Nouns;
 import models.Places;
 import models.Words;
@@ -57,6 +58,7 @@ public class GameController extends Controller
     {
         Words words = new Words();
 
+
         List places = new LinkedList();
         places.add("Beach");
         places.add("School");
@@ -83,7 +85,7 @@ public class GameController extends Controller
         verbs.add("forgotten");
         verbs.add("forgiven");
 
-        List adjectives = new LinkedList();
+         List adjectives = new LinkedList();
         adjectives.add("creepy");
         adjectives.add("restful");
         adjectives.add("immense");

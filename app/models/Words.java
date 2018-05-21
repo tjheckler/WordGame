@@ -18,7 +18,6 @@ public class Words
     private List<Adjectives> adjectives = new LinkedList<>();
     private List<Places> places = new LinkedList<>();
 
-
     public List<Nouns> getNouns()
     {
 

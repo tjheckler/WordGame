@@ -1,26 +1,17 @@
 package models;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.io.IOException;
-
 public class Verbs
 {
-    private Image image;
+    private String image;
     private String verb;
-    public Verbs(String verb,Image image)
+    public Verbs(String verb,String  image)
     {
         this.image = image;
         this.verb = verb;
     }
-    public Image getImage(String fileName)
+    public void getImage(String image)
     {
-        try {
-            return ImageIO.read(getClass().getResourceAsStream(fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        this.image = image;
     }
 
     public String getVerb()
@@ -28,7 +19,7 @@ public class Verbs
         return verb;
     }
 
-    public void setImage(Image image)
+    public void setImage(String image)
     {
         this.image = image;
     }

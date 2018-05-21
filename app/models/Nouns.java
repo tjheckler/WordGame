@@ -1,27 +1,18 @@
 package models;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.io.IOException;
-
 public class Nouns
 {
-    private Image image;
+    private String image;
     private String noun;
 
-    public Nouns(String noun,Image image)
+    public Nouns(String noun,String image)
     {
         this.image = image;
         this.noun = noun;
     }
-    public Image getImage(String fileName)
+    public void getImage(String image)
     {
-        try {
-            return ImageIO.read(getClass().getResourceAsStream(fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+       this.image = image;
     }
 
     public String getNoun()
@@ -29,7 +20,7 @@ public class Nouns
         return noun;
     }
 
-    public void setImage(Image image)
+    public void setImage(String image)
     {
         this.image = image;
     }

@@ -1,16 +1,12 @@
 package models;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.io.IOException;
-
 public class Places
 {
 
-    private Image image;
+    private String image;
     private String place;
     Places placeItem = new Places(place,image);
-    public Image getImage()
+    public String getImage()
     {
         return image;
     }
@@ -22,26 +18,21 @@ public class Places
 
 
 
-    public Places(String place,Image image)
+    public Places(String place,String image)
     {
         this.image = image;
         this.place = place;
     }
-    public Image getImage(String fileName)
+    public void getImage(String image)
     {
-        try {
-            return ImageIO.read(getClass().getResourceAsStream(fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        this.image = image;
     }
     public String getPlace()
     {
         return place;
     }
 
-    public void setImage(Image image)
+    public void setImage(String image)
     {
         this.image = image;
     }

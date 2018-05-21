@@ -1,26 +1,17 @@
 package models;
 
-import javax.imageio.ImageIO;
-import java.awt.*;
-import java.io.IOException;
-
 public class Adjectives
 {
-    private Image image;
+    private String image;
     private String adjective;
-    public Adjectives(String adjective,Image image)
+    public Adjectives(String adjective,String image)
     {
         this.image = image;
         this.adjective = adjective;
     }
-    public Image getImage(String fileName)
+    public void getImage(String image)
     {
-        try {
-            return ImageIO.read(getClass().getResourceAsStream(fileName));
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
+        this.image = image;
     }
 
     public String getAdjective()
@@ -28,7 +19,7 @@ public class Adjectives
         return adjective;
     }
 
-    public void setImage(Image image)
+    public void setImage(String image)
     {
         this.image = image;
     }
